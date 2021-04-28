@@ -17,7 +17,7 @@
         </div>
         <hr>
         <!-- CONCCATENACION Y OPERACIONES BASICAS -->
-        CONCCATENACION Y OPERACIONES BASICAS <br>
+        <div class="font-green">CONCCATENACION Y OPERACIONES BASICAS </div> <br>
 
         <!-- OPERACIONES -->
         <p> 5 + 6 = {{ 5 + 6}}</p>
@@ -32,7 +32,7 @@
                 evitar en lo posible esta mala practica -->
         <hr>
         <!-- TEXTO EN FORMATO HTML -->
-        TEXTO EN FORMATO HTML <br>
+        <div class="font-green">TEXTO EN FORMATO HTML </div><br>
         <div v-html="usuario.myTag"> </div>
         <!--               |          -->
         <!--     el mismo parametro de Vue se encarga de rellenar o poblar la etiqueta con la informacion pasada -->
@@ -40,13 +40,13 @@
 
 
         <!-- MOSTRAR UN ARREGLO, ARRAY O LISTA -->
-        MOSTRAR UN ARREGLO, ARRAY O LISTA <br>
+        <div class="font-green">MOSTRAR UN ARREGLO, ARRAY O LISTA </div> <br>
         <p>
            Unico elemto por indice: {{ usuario.colores[0] }}
         </p>
 
         <!-- ITERACION DE LISTAS O ARREGLOS -->
-        ITERACION DE LISTAS O ARREGLOS <br>
+        <div class="font-green"> ITERACION DE LISTAS O ARREGLOS </div><br>
         <div class="iteracion">
             <ul>
                 <li v-for="color in usuario.colores" :key="usuario.colores.indexOf(color)" > {{ color }} </li>
@@ -57,12 +57,27 @@
         <hr>
 
         <!-- ITERACION DE OBJETOS -->
-        ITERACION DE OBJETOS <br>
+        <div class="font-green"> ITERACION DE OBJETOS</div> <br>
         <div v-for="letra in usuario.letras" :key="usuario.letras.indexOf(letra)">
            Mayucula: {{letra.mayus}} <br>
            Minuscula: {{ letra.min }}
         </div>
+        <hr>
+        <!-- ITERACIONES SIN OBJETOS NI LISTAS -->
+        <div class="font-green"> ITERACIONES SIN OBJETOS NI LISTAS</div> 
+        <div v-for="x in 5" :key="x">
+            hola mundo. <button > Boton {{x}}</button>
+        </div>
+        <hr>
 
+        <!-- CONDICINALES -->
+        <div class="font-green"> CONDICINALES</div>
+        <div>
+            <button>Boton {{mostrarBoton}}</button>
+            <div v-if="mostrarBoton == 'intermedio'">Sin Estado</div>
+            <div v-else-if="mostrarBoton">boton activo</div>
+            <div v-else> boton desactivado</div>
+        </div>
     </div>
 </template>
 
@@ -84,9 +99,7 @@ export default {
                     {min: "d", mayus:"D"}
                 ]
             },
-            usuario2:{
-
-            }
+            mostrarBoton: 'intermedio'
         }
     }
 }
